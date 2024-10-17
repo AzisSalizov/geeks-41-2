@@ -1,0 +1,13 @@
+.btn {
+    background-color: aqua;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    background-color: aquamarine;
+    .title {
+        color: red;
+    }
+}
+
