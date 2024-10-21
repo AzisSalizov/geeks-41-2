@@ -1,0 +1,25 @@
+h1 {
+  text-align: center;
+}
+
+.pokemon_list {
+  width: 1060px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  gap: 20px;
+
+  p {
+    color: #fff;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    padding: 8px 40px;
+  }
+}
