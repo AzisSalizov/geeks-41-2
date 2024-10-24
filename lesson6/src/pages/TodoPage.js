@@ -46,7 +46,7 @@ const TodoPage = () => {
 
             const addedTodo = await response.json();
             setTodolist(prev => [...prev, addedTodo]);
-            setInputValue(''); // Очистка поля ввода
+            setInputValue('');
         } catch (error) {
             console.error('Error adding todo:', error);
         }
