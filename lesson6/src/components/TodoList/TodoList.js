@@ -1,14 +1,14 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import Todo from '../todo/Todo';
 import classes from './TodoList.module.scss';
 
+const TodoList = ({todoList, handleDone, handleDelete, handleEdit}) => {
+    const [currentId, setCurrentId] = useState(null);
 
-const TodoList = ({todoList, handleDone, handleDelete,handleEdit}) => {
-    const [currentId, setCurrentId] = useState(null)
     return (
         <div className={classes.ul}>
             {
-                todoList.map(todo=>
+                todoList.map(todo =>
                     <Todo
                         key={todo.id}
                         todo={todo}
@@ -17,7 +17,8 @@ const TodoList = ({todoList, handleDone, handleDelete,handleEdit}) => {
                         setCurrentId={setCurrentId}
                         isEdit={currentId === todo.id}
                         handleEdit={handleEdit}
-                    /> )
+                    />
+                )
             }
         </div>
     );

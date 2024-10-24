@@ -2,13 +2,11 @@ import React, {useState} from 'react';
 import classes from './Todo.module.scss';
 import Button from '../button/Button';
 
-
 const Todo = ({todo, handleDone, handleDelete, setCurrentId, isEdit, handleEdit}) => {
+    const [inputValue, setInputValue] = useState(todo.title);
 
-    const [inputValue, setInputValue] = useState(todo.title)
-    const closeEdit = () => {
-        setCurrentId(null);
-    }
+    const closeEdit = () => setCurrentId(null);
+
     return (
         <>
             <li className={`${classes.li} ${todo.completed && classes.done}`}>
@@ -18,7 +16,7 @@ const Todo = ({todo, handleDone, handleDelete, setCurrentId, isEdit, handleEdit}
                 </div>
                 <div className={classes.btns}>
                     <Button title={'Edit'} action={() => setCurrentId(todo.id)}/>
-                    <Button title={'Done'} color={'Secondary'} action={() => handleDone(todo.id)}/>
+                    <Button title={'Done'} color={'Secondary'} action={() => handleDone(todo.id, todo.completed)}/>
                     <Button title={'Delete'} color={'error'} action={() => handleDelete(todo.id)}/>
                 </div>
             </li>
@@ -36,18 +34,19 @@ const Todo = ({todo, handleDone, handleDelete, setCurrentId, isEdit, handleEdit}
                                 ...todo,
                                 title: inputValue,
                             });
-                            closeEdit()
-                        }
-
-                    }/>
+                            closeEdit();
+                        }}
+                    />
                     <Button
-                        title={'cancel'} action={() => {
+                        title={'cancel'}
+                        action={() => {
                             setInputValue(todo.title);
-                            closeEdit()
-                        }} color={'error'}/>
+                            closeEdit();
+                        }}
+                        color={'error'}
+                    />
                 </div>
             }
-
         </>
     );
 };
